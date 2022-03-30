@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NewsDesk.Context;
 using NewsDesk.Data;
 using NewsDesk.Messages;
@@ -12,7 +13,7 @@ namespace NewsDesk.Controllers
     public class CategoriesController : ControllerBase
     {
         private readonly IMapper _mapper;
-        private CategoriesRepository _categories;
+        private readonly CategoriesRepository _categories;
 
         public CategoriesController(IMapper mapper, DatabaseContext databaseContext)
         {

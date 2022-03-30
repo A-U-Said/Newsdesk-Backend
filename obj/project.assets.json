@@ -5759,19 +5759,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Adam\\.nuget\\packages\\": {}
+    "C:\\Users\\Adam Utton-Said\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Adam\\Desktop\\Projects\\newsdesk Backend\\NewsDesk\\NewsDesk.csproj",
+      "projectUniqueName": "C:\\Users\\Adam Utton-Said\\Desktop\\Newsdesk-Backend\\NewsDesk.csproj",
       "projectName": "NewsDesk",
-      "projectPath": "C:\\Users\\Adam\\Desktop\\Projects\\newsdesk Backend\\NewsDesk\\NewsDesk.csproj",
-      "packagesPath": "C:\\Users\\Adam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Adam\\Desktop\\Projects\\newsdesk Backend\\NewsDesk\\obj\\",
+      "projectPath": "C:\\Users\\Adam Utton-Said\\Desktop\\Newsdesk-Backend\\NewsDesk.csproj",
+      "packagesPath": "C:\\Users\\Adam Utton-Said\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Adam Utton-Said\\Desktop\\Newsdesk-Backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Adam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Adam Utton-Said\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5832,7 +5832,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

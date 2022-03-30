@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using NewsDesk.Mapping;
 using Microsoft.EntityFrameworkCore;
 using NewsDesk.Context;
+using NewsDesk.Extensions;
 
 namespace NewsDesk
 {
@@ -34,8 +35,12 @@ namespace NewsDesk
             var mapperConfig = new MapperConfiguration(mc => mc.AddProfile(new MappingProfile()));
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
-            DatabaseContext databaseContext = new DatabaseContext { ConnectionString = Configuration.GetValue<string>("ConnectionStrings:DefaultConnection") };
-            services.AddSingleton(databaseContext);
+            services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //DatabaseMeta databaseMeta = new DatabaseMeta { ConnectionString = Configuration.GetValue<string>("ConnectionStrings:DefaultConnection") };
+            //if (databaseMeta.CanConnect())
+            //{
+            //    services.AddSingleton(databaseMeta);
+            //}
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

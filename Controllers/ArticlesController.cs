@@ -6,6 +6,7 @@ using NewsDesk.Models;
 using NewsDesk.Messages;
 using System;
 using NewsDesk.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace NewsDesk.Controllers
 {
@@ -14,7 +15,7 @@ namespace NewsDesk.Controllers
     public class ArticlesController : ControllerBase
     {
         private readonly IMapper _mapper;
-        private ArticleRepository _articles;
+        private readonly ArticleRepository _articles;
 
         public ArticlesController(IMapper mapper, DatabaseContext databaseContext) 
         {
@@ -27,6 +28,7 @@ namespace NewsDesk.Controllers
         {
             return new ItemsWrapper { Items = _mapper.Map<List<ArticleListView>>(_articles.GetAll()) };
         }
+
 
         [HttpGet("{id}")]
         public ArticleDetailView GetArticle(int id)

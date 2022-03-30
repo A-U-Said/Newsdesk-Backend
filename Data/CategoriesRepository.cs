@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using NewsDesk.Context;
 using NewsDesk.Interfaces;
 using NewsDesk.Models;
@@ -11,10 +12,10 @@ namespace NewsDesk.Data
 {
     public class CategoriesRepository : IRepository<Category>
     {
-        private IDbConnection _db;
+        private readonly IDbConnection _db;
         public CategoriesRepository(DatabaseContext _dbContext)
         {
-            _db = new SqlConnection(_dbContext.ConnectionString);
+            _db = _dbContext.Database.GetDbConnection();
         }
 
         public Category Add(Category newItem)

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NewsDesk.Context;
 using NewsDesk.Data;
 using NewsDesk.Messages;
@@ -12,7 +13,7 @@ namespace NewsDesk.Controllers
     public class AuthorsController : ControllerBase
     {
         private readonly IMapper _mapper;
-        private AuthorRepository _authors;
+        private readonly AuthorRepository _authors;
 
         public AuthorsController(IMapper mapper, DatabaseContext databaseContext)
         {

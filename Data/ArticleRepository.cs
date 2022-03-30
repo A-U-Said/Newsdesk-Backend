@@ -3,18 +3,20 @@ using NewsDesk.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Data;
-using Microsoft.Data.SqlClient;
 using Dapper;
 using NewsDesk.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace NewsDesk.Data
 {
-    public class ArticleRepository : IRepository<Article>
+    public class ArticleRepository : IRepository<Article, ExpandedArticle>
     {
-        private IDbConnection _db;
+        private readonly IDbConnection _db;
+        private readonly DbSet<Article> _articles;
         public ArticleRepository(DatabaseContext _dbContext)
         {
-            _db = new SqlConnection(_dbContext.ConnectionString);
+            _db = _dbContext.Database.GetDbConnection();
+            _articles = _dbContext.Articles;
         }
 
         public Article Add(Article newItem)
@@ -27,23 +29,26 @@ namespace NewsDesk.Data
             return newItem;
         }
 
-        public Article Find(int id)
+        public ExpandedArticle Find(int id)
         {
             var sql = "SELECT * FROM Articles " +
                         "INNER JOIN Categories ON Articles.Category = Categories.id " +
                         "INNER JOIN Authors ON Articles.Author = Authors.id " +
                         "WHERE Articles.Id = @Id";
-            return _db.Query<Article, Category, Author, Article>(sql, (article, category, author) =>
+            return _db.Query<ExpandedArticle, Category, Author, ExpandedArticle>(sql, (article, category, author) =>
             {
                 article.CategoryExpanded = category;
                 article.AuthorExpanded = author;
                 return article;
             }, new { id }).SingleOrDefault();
+
+            //return _articles.SingleOrDefault(article => article.Id == id); //EF
         }
 
         public List<Article> GetAll()
         {
-            return _db.Query<Article>("SELECT * FROM Articles").ToList();
+            return _db.Query<Article>("SELECT * FROM Articles").ToList(); //Dapper
+            //return _articles.Select(article => article).ToList(); //EF
         }
 
         public void Remove(int id)
