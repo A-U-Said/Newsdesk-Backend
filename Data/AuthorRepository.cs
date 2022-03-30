@@ -12,13 +12,9 @@ namespace NewsDesk.Data
     public class AuthorRepository : IRepository<Author>
     {
         private readonly IDbConnection _db;
-        private readonly DbSet<Author> _authors;
-        private readonly DatabaseContext _dbContext;
         public AuthorRepository(DatabaseContext dbContext)
         {
             _db = dbContext.Database.GetDbConnection();
-            _dbContext = dbContext;
-            _authors = dbContext.Authors;
         }
 
         public Author Add(Author newItem)
@@ -28,29 +24,22 @@ namespace NewsDesk.Data
                 "SELECT CAST(SCOPE_IDENTITY() as int)";
             var id = _db.Query<int>(sql, newItem).Single();
             newItem.Id = id;
-            return newItem;     //Dapper
-            //_authors.Add(newItem);
-            //_dbContext.SaveChanges();
-            //return newItem;   //EF
+            return newItem;
         }
 
         public Author Find(int id)
         {
-            return _db.Query<Author>("SELECT * FROM Authors WHERE Id = @Id", new { id }).SingleOrDefault(); //Dapper
-            //return _authors.SingleOrDefault(author => author.Id == id); //EF
+            return _db.Query<Author>("SELECT * FROM Authors WHERE Id = @Id", new { id }).SingleOrDefault();
         }
 
         public List<Author> GetAll()
         {
-            return _db.Query<Author>("SELECT * FROM Authors").ToList(); //Dapper
-            //return _authors.Select(author => author).ToList(); //EF
+            return _db.Query<Author>("SELECT * FROM Authors").ToList();
         }
 
         public void Remove(int id)
         {
-            _db.Execute("DELETE FROM Authors WHERE Id = @Id", new { id }); //Dapper
-            //_authors.Remove(_authors.First(author => author.Id == id));
-            //_dbContext.SaveChanges(); //EF
+            _db.Execute("DELETE FROM Authors WHERE Id = @Id", new { id });
         }
 
         public Author Update(Author editItem)

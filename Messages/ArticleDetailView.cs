@@ -6,6 +6,6 @@ namespace NewsDesk.Messages
     {
         public string Body { get; set; }
         public Author Author { get; set; }
-        public new Category Category { get; set; }
+        public Category Category { get; set; }
     }
 }

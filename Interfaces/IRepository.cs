@@ -12,12 +12,4 @@ namespace NewsDesk.Interfaces
         void Remove(int id);
     }
 
-    public interface IRepository<T, TExt>
-    {
-        TExt Find(int id);
-        List<T> GetAll();
-        T Add(T newItem);
-        T Update(T editItem);
-        void Remove(int id);
-    }
 }

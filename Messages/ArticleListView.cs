@@ -10,7 +10,7 @@ namespace NewsDesk.Messages
         public int Id { get; set; }
         public string Title { get; set; }
         public DateTime PublishedDate { get; set; }
-        public int Category { get; set; }
+        public int CategoryId { get; set; }
     }
 
     public class ItemsWrapper

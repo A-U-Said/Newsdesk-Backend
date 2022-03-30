@@ -9,10 +9,8 @@ namespace NewsDesk.Mapping
         public MappingProfile()
         {
             CreateMap<Article, ArticleListView>();
-            CreateMap<ExpandedArticle, ArticleDetailView>()
-                .IncludeBase<Article, ArticleListView>()
-                .ForMember(dest => dest.Author, opt => opt.MapFrom(src => src.AuthorExpanded))
-                .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.CategoryExpanded));
+            CreateMap<Article, ArticleDetailView>()
+                .IncludeBase<Article, ArticleListView>();
 
             CreateMap<Author, AuthorListView>();
             CreateMap<Author, AuthorDetailView>()

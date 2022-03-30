@@ -37,18 +37,18 @@ namespace NewsDesk.Controllers
         }
 
         [HttpPost]
-        public ArticleDetailView CreateArticle([FromForm, FromBody] NewArticleCommand newArticleCommand)
+        public ArticleListView CreateArticle([FromForm, FromBody] NewArticleCommand newArticleCommand)
         {
             var newArticle = new Article
             {
                 Title = newArticleCommand.Title,
                 Body = newArticleCommand.Body,
                 PublishedDate = DateTime.Now,
-                Category = newArticleCommand.Category,
-                Author = newArticleCommand.Author
+                CategoryId = newArticleCommand.CategoryId,
+                AuthorId = newArticleCommand.AuthorId
             };
             _articles.Add(newArticle);
-            return _mapper.Map<ArticleDetailView>(newArticle);
+            return _mapper.Map<ArticleListView>(newArticle);
         }
 
         [HttpPut("{id}")]
