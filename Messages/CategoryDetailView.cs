@@ -1,4 +1,5 @@
-﻿namespace NewsDesk.Messages
+﻿
+namespace NewsDesk.Messages
 {
     public class CategoryDetailView : CategoryListView
     {
