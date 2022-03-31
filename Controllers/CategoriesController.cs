@@ -30,7 +30,7 @@ namespace NewsDesk.Controllers
         [HttpGet("{id}")]
         public CategoryListView GetAuthor(int id)
         {
-            return _mapper.Map<CategoryListView>(_categories.Find(id));
+            return _mapper.Map<CategoryDetailView>(_categories.Find(id));
         }
     }
 }

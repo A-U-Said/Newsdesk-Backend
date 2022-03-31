@@ -17,6 +17,8 @@ namespace NewsDesk.Mapping
                 .IncludeBase<Author, AuthorListView>();
 
             CreateMap<Category, CategoryListView>();
+            CreateMap<Category, CategoryDetailView>()
+                .IncludeBase<Category, CategoryListView>();
 
             CreateMap<NewArticleCommand, Article>();
 
