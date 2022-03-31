@@ -163,3 +163,6 @@ C:\Users\Adam Utton-Said\Desktop\Newsdesk-Backend\obj\Debug\net5.0\NewsDesk.pdb
 C:\Users\Adam Utton-Said\Desktop\Newsdesk-Backend\obj\Debug\net5.0\NewsDesk.genruntimeconfig.cache
 C:\Users\Adam Utton-Said\Desktop\Newsdesk-Backend\obj\Debug\net5.0\ref\NewsDesk.dll
 C:\Users\Adam Utton-Said\Desktop\Newsdesk-Backend\bin\Debug\net5.0\appsettings.json
+C:\Users\Adam Utton-Said\Desktop\Newsdesk-Backend\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Adam Utton-Said\Desktop\Newsdesk-Backend\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Adam Utton-Said\Desktop\Newsdesk-Backend\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll

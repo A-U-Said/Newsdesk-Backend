@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NewsDesk.Mapping;
 using NewsDesk.Models;
 
 namespace NewsDesk.Context
@@ -8,6 +9,11 @@ namespace NewsDesk.Context
         public DatabaseContext(DbContextOptions<DatabaseContext> options)
             : base(options)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new ArticleMap());
         }
 
         public DbSet<Article> Articles { get; set; }

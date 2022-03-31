@@ -7,7 +7,7 @@ using Microsoft.Extensions.Hosting;
 using NewsDesk.Mapping;
 using Microsoft.EntityFrameworkCore;
 using NewsDesk.Context;
-using NewsDesk.Extensions;
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 
 namespace NewsDesk
 {
@@ -36,11 +36,7 @@ namespace NewsDesk
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
             services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            //DatabaseMeta databaseMeta = new DatabaseMeta { ConnectionString = Configuration.GetValue<string>("ConnectionStrings:DefaultConnection") };
-            //if (databaseMeta.CanConnect())
-            //{
-            //    services.AddSingleton(databaseMeta);
-            //}
+            //services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -11,11 +11,11 @@ namespace NewsDesk.Data
 {
     public class ArticleRepository : IRepository<Article>
     {
-        private readonly IDbConnection _db;
+        //private readonly IDbConnection _db;                   //Dapper
         private readonly DatabaseContext _dbContext;
         public ArticleRepository(DatabaseContext dbContext)
         {
-            _db = dbContext.Database.GetDbConnection();
+            //_db = dbContext.Database.GetDbConnection();       //Dapper
             _dbContext = dbContext;
         }
 
